@@ -9,7 +9,7 @@ import { FiLogOut } from "react-icons/fi";
 
 const Header = () => {
   return (
-    <div className="bg-bodyColor h-20">
+    <div className="bg-bodyColor h-20 top-0 sticky z-50">
       <Container className="h-full flex items-center md:gap-x-5 justify-between md:justify-start">
         <Logo />
         {/* Search Field */}
