@@ -12,7 +12,7 @@ const ProductPage = () => {
   };
   
   const {data} = useQuery("productDetail",fetchDetail )
- const y = data?.data.filter((ele:Products)=>ele._id === router.query._id)
+ const y = data?.data.filter((ele:Products)=>ele._id === params)
   return (
     <div>
       ProductPage
