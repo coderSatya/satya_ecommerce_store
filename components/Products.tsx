@@ -13,9 +13,9 @@ const Products = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  if (isError) {
-    return <div>{error?.message}</div>;
-  }
+  // if (isError) {
+  //   return <div>{error?.message}</div>;
+  // }
 
   return (
     <Container className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 -mt-10">
