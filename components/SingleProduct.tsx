@@ -7,25 +7,16 @@ import React from "react";
 import FormattedPrice from "./FormattedPrice";
 import { IoMdCart } from "react-icons/io";
 import { MdFavoriteBorder } from "react-icons/md";
-import { Audio } from "react-loader-spinner";
+import { useDispatch } from "react-redux";
+
 import toast, { Toaster } from "react-hot-toast";
+import { addToCart } from "@/redux-toolkit/slices/shoppingSlice";
 
 const SingleProduct = ({ productDetail }: ProductDetailItem) => {
+  const dispatch = useDispatch()
   return (
     <div className="grid lg:grid-cols-2 gap-5 bg-white p-4 rounded-lg">
-      {productDetail ? (
-       ""
-      ) : (
-        <Audio
-        height="80"
-        width="80"
-        // radius="9"
-        color="green"
-        ariaLabel="loading"
-        // wrapperStyle
-        // wrapperClass
-      />
-      )}
+      
       <div>
         <Image
           src={productDetail?.image}
@@ -53,7 +44,11 @@ const SingleProduct = ({ productDetail }: ProductDetailItem) => {
           </span>
         </div>
         <div className="flex items-center cursor-pointer group">
-          <button className="bg-darkText text-slate-100 px-6 py-3 text-sm uppercase flex items-center border-r-[1px] border-r-slate-500">
+          <button onClick={()=>dispatch(addToCart(productDetail)) && 
+            toast.success(
+              `${productDetail?.title.substring(0,15)} added successfully`
+            )}
+          className="bg-darkText text-slate-100 px-6 py-3 text-sm uppercase flex items-center border-r-[1px] border-r-slate-500">
             add to cart
           </button>
           <span className="bg-darkText text-xl text-slate-100 w-12 flex items-center justify-center group-hover:bg-orange-500 duration-200 py-3">

@@ -17,3 +17,12 @@ export interface ItemProps{
 export interface ProductDetailItem{
   productDetail:Products
 }
+export interface StateProps{
+  shoppingSlice:{
+    productData:[]
+    userInfo:{}
+    orderData:{
+      order:Products[]
+    }
+  }
+}

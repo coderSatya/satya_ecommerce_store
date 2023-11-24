@@ -5,9 +5,12 @@ import Image from 'next/image';
 import { calculatePercentage } from '@/helper';
 import FormattedPrice from './FormattedPrice';
 import Link from 'next/link';
+import { addToCart } from '@/redux-toolkit/slices/shoppingSlice';
 import Rating from './Rating';
+import { useDispatch } from 'react-redux';
+import toast, { Toaster } from 'react-hot-toast';
 const ProductsData = ({item}:ItemProps) => {
-    console.log(item)
+    const dispatch = useDispatch()
   return (
     <div className="w-full rounded-lg overflow-hidden">
      <div>
@@ -43,7 +46,10 @@ const ProductsData = ({item}:ItemProps) => {
           <div className="flex items-center justify-between">
             {/* add to cart button */}
             <button
-             
+             onClick={()=>dispatch(addToCart(item)) && 
+            toast.success(
+              `${item?.title.substring(0,15)} added successfully`
+            )}
               className="bg-orange-600 px-4 py-2 text-sm tracking-wide rounded-full text-slate-100 hover:bg-orange-800 hover:text-white duration-200"
             >
               add to cart
@@ -54,6 +60,7 @@ const ProductsData = ({item}:ItemProps) => {
           </div>
         </div>
      </div >
+     <Toaster />
     </div>
   )
 }

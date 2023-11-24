@@ -7,6 +7,7 @@ import { BsType } from "react-icons/bs";
 import Container from "@/components/Container";
 import ProductsData from "@/components/ProductsData";
 import SingleProduct from "@/components/SingleProduct";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const ProductPage = () => {
   const router = useRouter();
@@ -34,7 +35,7 @@ const ProductPage = () => {
 
 
   if (isLoading) {
-    return <h2>Loading.....</h2>;
+    return <div className="text-center"><CircularProgress size={100}/></div> 
   }
 
   return (
