@@ -26,7 +26,6 @@ const ProductPage = () => {
     "tendingProduct",
     trendingProductData
   );
-  console.log(TrendingProduct);
 
   const productDetail: Products = data?.data.filter(
     (ele: Products) => ele._id === Number(params)
