@@ -14,3 +14,6 @@ export interface Products {
 export interface ItemProps{
     item:Products
 }
+export interface ProductDetailItem{
+  productDetail:Products
+}
