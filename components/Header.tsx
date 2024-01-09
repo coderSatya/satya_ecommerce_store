@@ -40,10 +40,10 @@ const Header = () => {
           />
         </div>
         {/* Login/register */}
-        <div className="headerDiv">
+     <Link href="/auth/sign-up">   <div className="headerDiv">
           <AiOutlineUser className="text-2xl" />
           <p className="text-sm font-semibold">Login/Register</p>
-        </div>
+        </div></Link>
         {/* Cart button */}
         <Link href="/cart">
        
